@@ -1,33 +1,222 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>FlightSurety</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
 
-<body>
-
+  <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">FlightSurety</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="#">FlightSurety</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </nav>
 
     <main class="container">
+      <div id="display-wrapper" class="top-20"></div>
 
-        <div id="display-wrapper" class="top-20">
+      <div class="top-20 p-3 border border-white rounded">
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <input
+              class="form-control"
+              type="text"
+              id="flight-number"
+              placeholder="Flight"
+            />
+          </div>
+          <div class="mt-sm-3 mt-md-0 col-sm-12 col-md">
+            <btn class="btn btn-primary btn-custom" id="submit-oracle"
+              >Submit to Oracles</btn
+            >
+          </div>
         </div>
-        <div class="row top-20">
-            <label class="form">Flight</label> <input type="text" id="flight-number"> <btn class="btn btn-primary" id="submit-oracle">Submit to Oracles</btn>
+      </div>
+
+      <div class="flexbox">
+        <div class="top-20 p-3 border border-white rounded">
+          <div class="text-center mb-2 border-bottom">
+            <h3>Airline Actions</h3>
+          </div>
+
+          <div class="py-3 border-bottom">
+            <div class="row">
+              <div class="col-sm-12 col-md">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="newAirlineName"
+                  placeholder="Airline name"
+                />
+              </div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="newAirlineAddress"
+                  placeholder="Airline address"
+                />
+              </div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md">
+                <btn class="btn btn-primary btn-custom" id="registerNewAirline"
+                  >Register Airline</btn
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="py-3 border-bottom">
+            <div class="row">
+              <div class="col-sm-12 col-md">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="fundedAirlineAddress"
+                  placeholder="Airline address"
+                />
+              </div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md-4">
+                <input
+                  class="form-control"
+                  type="number"
+                  id="fundingAmount"
+                  min="10"
+                  placeholder="Amount in Ether"
+                />
+              </div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md">
+                <btn class="btn btn-primary btn-custom" id="fundAirline"
+                  >Fund Airline</btn
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="py-3">
+            <div class="row">
+              <div class="col-sm-12 col-md-4">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="registerFlightNumber"
+                  placeholder="Fligh No:"
+                />
+              </div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md-4">
+                <input
+                  class="form-control"
+                  type="datetime-local"
+                  id="registerFlightDepartTime"
+                  placeholder="Departure time"
+                />
+              </div>
+            </div>
+
+            <div class="row top-20">
+              <div class="col-sm-12 col-md-4">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="registerFlightDepartLocation"
+                  placeholder="Departure location"
+                />
+              </div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md-4">
+                <input
+                  class="form-control"
+                  type="text"
+                  id="registerFlightArrivalLocation"
+                  placeholder="Arrival location"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row top-20">
+            <div class="col-4"></div>
+            <div class="col-sm-12 col-md">
+              <btn class="btn btn-primary btn-custom" id="registerFlight"
+                >Register Flight</btn
+              >
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="top-20 p-3 border border-white rounded">
+        <div class="text-center mb-2 border-bottom">
+          <h3>Customer/Passenger Actions</h3>
+        </div>
+
+        <div class="py-3 border-bottom">
+          <div class="py-3 border-bottom">
+            <div class="row">
+              <div class="col-sm-12 col-md">
+                <input
+                  class="form-control"
+                  list="availableFlights"
+                  id="insuredFlightNumber"
+                  placeholder="Flight key"
+                />
+                <datalist id="availableFlights"> </datalist>
+              </div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md">
+                <input
+                  class="form-control"
+                  type="number"
+                  id="insuranceAmount"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  placeholder="Insurance amount"
+                />
+              </div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md">
+                <btn class="btn btn-primary btn-custom" id="buyInsurance"
+                  >Buy Insurance</btn
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="py-3">
+            <div class="row">
+              <div class="col text-center">
+                <p>
+                  You can claim 1.5 times the insurance fee paid at booking for
+                  a delayed flight
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="mt-sm-3 mt-md-0 col-sm-12 col-md-6">
+                <btn class="btn btn-primary btn-custom" id="claimInsurance"
+                  >Claim</btn
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
-
-</body>
-
+  </body>
 </html>
